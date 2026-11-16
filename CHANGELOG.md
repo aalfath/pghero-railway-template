@@ -2,6 +2,10 @@
 
 Each entry lists breaking changes first. Read it before you apply an update to a deployed template.
 
+## 4.1.0-1 (2026-11-16)
+
+- No breaking changes. README only: added the Deploy on Railway button for the published template (`pghero`) and clarified that `DATABASE_URL` is the one prompt. Nothing about the running service changes.
+
 ## 4.1.0 (2026-11-16)
 
 - First release of this template: PgHero 4.1.0 (`ankane/pghero:v4.1.0@sha256:9b8f4be0…`).
