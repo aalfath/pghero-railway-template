@@ -1,3 +1,5 @@
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/new/template/pghero?utm_medium=integration&utm_source=button&utm_campaign=pghero)
+
 # PgHero on Railway
 
 A Railway template for [PgHero](https://github.com/ankane/pghero) 4.1.0, the performance dashboard for Postgres. It's meant as an add-on: you point it at a Postgres you already run on Railway (or anywhere else) and get a dashboard of slow queries, unused and missing indexes, table and index sizes, connections, live queries and maintenance stats.
@@ -14,7 +16,7 @@ PgHero keeps no state of its own, so there's no volume and no database in the te
 
 | Variable | Default | What it's for |
 | --- | --- | --- |
-| `DATABASE_URL` | prompt | The Postgres to watch. In a project that has Railway Postgres, enter `${{Postgres.DATABASE_URL}}` (private network). |
+| `DATABASE_URL` | prompt (the only one) | The Postgres to watch. Deploy into the project that has your database and enter `${{Postgres.DATABASE_URL}}` (or your database service's name instead of `Postgres`), so PgHero connects over the private network. Any `postgres://` URL works too. |
 | `PGHERO_USERNAME` | `admin` | Basic auth user. |
 | `PGHERO_PASSWORD` | generated | Basic auth password. The service won't start without one. |
 | `PORT` | `8080` | Port the dashboard listens on. |
