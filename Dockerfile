@@ -3,6 +3,7 @@
 FROM ankane/pghero:v4.1.0@sha256:9b8f4be0d494655302343b2388c5a3dc6c06ff53489aa78b470123cfd0355a31
 
 COPY --chmod=755 start.sh /usr/local/bin/pghero-start
+COPY setup/config.ru /opt/pghero-setup/config.ru
 
 # Railway routes the public domain to PORT (8080 by default).
 ENV PORT=8080

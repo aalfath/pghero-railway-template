@@ -23,7 +23,7 @@ Optional variables you can add later: `PGHERO_STATS_DATABASE_URL` (where histori
 
 ## Query stats
 
-The Queries tab needs the `pg_stat_statements` extension, which Postgres only loads when it's in `shared_preload_libraries`. On Railway Postgres, set the database service's start command to load it, redeploy it, then press "Enable" in PgHero (or run `CREATE EXTENSION pg_stat_statements;`). The rest of the dashboard works without it.
+The Queries tab needs the `pg_stat_statements` extension. Railway's current Postgres image already preloads it, so press "Enable query stats" on PgHero's Overview page (or run `CREATE EXTENSION pg_stat_statements;`). On another Postgres, add `pg_stat_statements` to `shared_preload_libraries` and restart it first. The rest of the dashboard works without it.
 
 ## Updates
 
@@ -32,6 +32,7 @@ Railway notifies everyone who deployed this template when `main` changes. Each c
 ## Files
 
 - `Dockerfile`: the pinned upstream image plus the start script.
-- `start.sh`: checks `DATABASE_URL` and `PGHERO_PASSWORD`, sets the defaults, then starts Puma.
+- `start.sh`: refuses to start without `PGHERO_PASSWORD`, sets the defaults, then starts Puma. With no `DATABASE_URL`, it serves `setup/config.ru` instead.
+- `setup/config.ru`: a tiny page that says how to set `DATABASE_URL` (`/health` still answers 200).
 
 This is a community-maintained deployment package. It isn't affiliated with or endorsed by the PgHero project. PgHero is MIT-licensed.

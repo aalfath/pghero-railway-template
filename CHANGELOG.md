@@ -8,3 +8,4 @@ Each entry lists breaking changes first. Read it before you apply an update to a
 - Basic auth is always on: `PGHERO_USERNAME` (default `admin`) and a generated `PGHERO_PASSWORD`. The service refuses to start without a password.
 - Runs Puma in single mode (`PUMA_WORKERS=0`) instead of the image's 3 workers to keep memory low.
 - Health check: `/health`.
+- Without `DATABASE_URL` the service stays up and serves a short page saying what to set, instead of crash-looping.
